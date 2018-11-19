@@ -1,0 +1,43 @@
+{
+  "name": "Twitter Counts Hider",
+  "version": "1.0",
+  "description": "Hides twitter tweets, retweets, likes, comments, followers and following counts",
+  "author": "cdruc",
+  "permissions": [
+    "storage",
+    "declarativeContent",
+    "activeTab",
+    "*://*.twitter.com/*"
+  ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": true
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*/*"
+      ],
+      "run_at": "document_end",
+      "js": [
+        "twitter_runtime.js"
+      ]
+    }
+  ],
+  "page_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/twitter_inactive.png",
+      "48": "images/twitter_48.png",
+      "128": "images/twitter.png"
+    }
+  },
+  "icons": {
+    "16": "images/twitter_inactive.png",
+    "48": "images/twitter_48.png",
+    "128": "images/twitter.png"
+  },
+  "manifest_version": 2
+}
